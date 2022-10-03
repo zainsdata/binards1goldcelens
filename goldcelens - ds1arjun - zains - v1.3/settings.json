@@ -1,0 +1,24 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "askForPassword": true,
+            "driver": "MySQL",
+            "name": "zains",
+            "username": "zains",
+            "database": "ds1goldcelens"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "SQLite DS1 Binar",
+            "database": "${workspaceFolder:Gold}/celens.db"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

@@ -1,0 +1,287 @@
+{
+    "openapi": "1.3",
+    "info":{ 
+        "title":"tworst! - binar DS1 gold challenge",
+        "version":"1.3",
+        "description": "clean a worse tweet you have ever seen",
+        "termsOfService": "https://www.github.com/zainsdata/binards1goldcelens",
+        "contact": {
+            "name": "zains",
+            "email": "jazzytunez@gmail.com",
+            "url": "https://www.github.com/zainsdata/binards1goldcelens"
+        },
+        "license": {
+            "name": "APACHE 2.0",
+            "url": "htpps://www.apache.org/licenses/LICENSE-2.0"
+        }
+    },
+
+
+
+
+    "servers":[
+        {
+            "description": "tworst! RESTful API server",
+            "url": "/"
+         }
+
+    ],
+
+
+    "externalDocs": {
+        "description": "Github Code - binar DS1 gold challenge",
+        "url": "https://github.com/zainsdata/binards1goldcelens"
+    },
+
+
+
+    "paths":{
+        "/":{
+            "get":{
+                "summary": "welcome page",
+                "description": "welcome to tworst!",
+                "responses": {
+                    "200":{
+                        "description": "success..."
+                    },
+                    "400":{
+                        "description": "misunderstood..."
+                    },
+                    "401":{
+                        "description": "unauthorized..."
+                    },
+                    "404":{
+                        "description": "not found..."
+                    },
+                    "500":{
+                        "description": "server error..."
+                    }
+                }
+            }
+        },
+
+        "/tweet":{
+            "get":{
+                "summary": "Get all of Tworst list",
+                "description": "Thousand of Tworst list",
+                "responses": {
+                    "200":{
+                        "description": "success..."
+                    },
+                    "400":{
+                        "description": "misunderstood..."
+                    },
+                    "401":{
+                        "description": "unauthorized..."
+                    },
+                    "404":{
+                        "description": "not found..."
+                    },
+                    "500":{
+                        "description": "server error..."
+                    }
+                }
+            },
+            "post":{
+                "summary": "Post a text",
+                "description": "Post a text file to clean",
+                "requestBody":{
+                    "required": true,
+                    "content": {
+                        "multipart/form-data":{
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "text":{
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200":{
+                        "description": "success..."
+                    },
+                    "400":{
+                        "description": "misunderstood..."
+                    },
+                    "401":{
+                        "description": "unauthorized..."
+                    },
+                    "404":{
+                        "description": "not found..."
+                    },
+                    "500":{
+                        "description": "server error..."
+                    }
+                }
+            }
+        },
+
+
+
+
+
+        "/tweet/{tweet_id}":{
+            "get":{
+                "summary": "Get tweet by id",
+                "description": "Get tweet by id from database",
+                "parameters": [
+                    {
+                        "name": "tweet_id",
+                        "in": "path",
+                        "required": true,
+                        "description": "tweet_id",
+                        "schema":{
+                            "type":"integer"
+                        }
+
+                    }
+                ],
+                "responses": {
+                    "200":{
+                        "description": "success..."
+                    },
+                    "400":{
+                        "description": "misunderstood..."
+                    },
+                    "401":{
+                        "description": "unauthorized..."
+                    },
+                    "404":{
+                        "description": "not found..."
+                    },
+                    "500":{
+                        "description": "server error..."
+                    }
+                }
+            },
+            "put":{
+                "summary": "Edit existing tweet",
+                "description": "Edit existing tweet in database",
+                "parameters": [
+                    {
+                        "name": "tweet_id",
+                        "in": "path",
+                        "required": true,
+                        "description": "tweet_id",
+                        "schema":{
+                            "type":"integer"
+                        }
+
+                    }
+                ],
+                "requestBody":{
+                    "required": true,
+                    "content": {
+                        "multipart/form-data":{
+                            "schema":{
+                                "type": "object",
+                                
+                                "properties": {
+                                    "text":{
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200":{
+                        "description": "success..."
+                    },
+                    "400":{
+                        "description": "misunderstood..."
+                    },
+                    "401":{
+                        "description": "unauthorized..."
+                    },
+                    "404":{
+                        "description": "not found..."
+                    },
+                    "500":{
+                        "description": "server error..."
+                    }
+                }
+            },
+            "delete":{
+                "summary": "Delete existing tweet",
+                "description": "Delete existing tweet in database",
+                "parameters": [
+                    {
+                        "name": "tweet_id",
+                        "in": "path",
+                        "required": true,
+                        "description": "tweet_id",
+                        "schema":{
+                            "type":"integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200":{
+                        "description": "success..."
+                    },
+                    "400":{
+                        "description": "misunderstood..."
+                    },
+                    "401":{
+                        "description": "unauthorized..."
+                    },
+                    "404":{
+                        "description": "not found..."
+                    },
+                    "500":{
+                        "description": "server error..."
+                    }
+                }
+            }
+
+        },
+
+        "/tweet/csv":{
+            "post":{
+                "summary": "Post a csv file",
+                "description": "Post a csv file to clean",
+                "requestBody":{
+                    "required": true,
+                    "content": {
+                        "multipart/form-data":{
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "file":{
+                                        "type": "string",
+                                        "format": "base64"
+                                    }
+                                }
+   
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200":{
+                        "description": "success..."
+                    },
+                    "400":{
+                        "description": "misunderstood..."
+                    },
+                    "401":{
+                        "description": "unauthorized..."
+                    },
+                    "404":{
+                        "description": "not found..."
+                    },
+                    "500":{
+                        "description": "server error..."
+                    }
+                }
+            }
+        }
+
+    }
+}
